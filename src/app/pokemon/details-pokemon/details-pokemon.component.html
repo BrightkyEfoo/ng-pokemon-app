@@ -1,0 +1,41 @@
+<div class="details-pokemon-container">
+  <h1 *ngIf="!pokemon">Aucun pokemon trouve</h1>
+  <div *ngIf="pokemon">
+    <h1>{{ pokemon.name }}</h1>
+    <div class="details">
+      <img src="{{ pokemon.picture }}" />
+      <table>
+        <tr>
+          <td>Nom</td>
+          <td>{{ pokemon.name }}</td>
+        </tr>
+        <tr>
+          <td>Points de vie</td>
+          <td>{{ pokemon.hp }}</td>
+        </tr>
+        <tr>
+          <td>Degats</td>
+          <td>{{ pokemon.cp }}</td>
+        </tr>
+        <tr>
+          <td>Types</td>
+          <td>
+            <span
+              *ngFor="let type of pokemon.types"
+              class="{{ type | cardTypesPipe }}"
+            >
+              {{ type }}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Date de creation</td>
+          <td>{{ pokemon.created | date:"dd-mm-yyyy" }}</td>
+        </tr>
+        <tr>
+            <button type="button" (click)="handleBack($event)" >RETOUR</button>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

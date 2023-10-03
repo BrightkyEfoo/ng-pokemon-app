@@ -1,0 +1,18 @@
+<div class="container">
+  <div
+    class="pok-container"
+    *ngFor="let pok of pokemons"
+    pkmnBorderCard
+    pkmnClickCard="{{ pok.name }}"
+    pkId={{pok.id}}
+  >
+    <img src="{{ pok.picture }}" />
+    <div>
+      <p>{{ pok.name }}</p>
+      <p>{{ pok.created | date : "dd/mm/yyyy" }}</p>
+      <span *ngFor="let type of pok.types" class="{{ type | cardTypesPipe }}">{{
+        type
+      }}</span>
+    </div>
+  </div>
+</div>
