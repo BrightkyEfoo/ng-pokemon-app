@@ -6,6 +6,9 @@ import { ClickCardDirective } from "../click-card.directive";
 import { DetailsPokemonComponent } from "./details-pokemon/details-pokemon.component";
 import { ListPokemonComponent } from "./list-pokemon/list-pokemon.component";
 import { RouterModule, Routes } from "@angular/router";
+import { PokemonService } from "./pokemon.service";
+import { FormsModule } from "@angular/forms";
+import { PokemonFormComponent } from "./pokemon-form/pokemon-form.component";
 
 const pokRoutes: Routes = [
   {
@@ -25,7 +28,9 @@ const pokRoutes: Routes = [
     CardTypesPipePipe,
     ListPokemonComponent,
     DetailsPokemonComponent,
+    PokemonFormComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(pokRoutes)],
+  imports: [CommonModule, FormsModule, RouterModule.forChild(pokRoutes)],
+  providers: [PokemonService],
 })
 export class PokemonModule {}
